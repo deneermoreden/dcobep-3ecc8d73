@@ -2,27 +2,38 @@ import { motion } from "framer-motion";
 import { fadeUpVariants, glowVariants } from "@/components/presentation/AnimatedElements";
 import { useEffect, useState } from "react";
 
-// Simple confetti particle
+// Subtle dust/star particle
 const Particle = ({ delay }: { delay: number }) => {
-  const colors = ["#3B82F6", "#60A5FA", "#93C5FD", "#FFFFFF", "#DBEAFE"];
+  // Softer, lighter colors - light blues and whites
+  const colors = [
+    "rgba(147, 197, 253, 0.6)", // light blue
+    "rgba(219, 234, 254, 0.5)", // very light blue
+    "rgba(255, 255, 255, 0.7)", // white
+    "rgba(191, 219, 254, 0.5)", // soft blue
+    "rgba(224, 231, 255, 0.4)", // pale indigo
+  ];
   const color = colors[Math.floor(Math.random() * colors.length)];
   const left = Math.random() * 100;
-  const rotation = Math.random() * 720 - 360;
-  const size = Math.random() * 8 + 4;
+  const rotation = Math.random() * 360;
+  // Smaller particles (1-3px) like dust or stars
+  const size = Math.random() * 2 + 1;
 
   return (
     <motion.div
-      initial={{ y: -20, x: 0, opacity: 1, rotate: 0 }}
+      initial={{ y: -10, x: 0, opacity: 0, rotate: 0, scale: 0 }}
       animate={{ 
         y: "100vh", 
-        x: Math.random() * 200 - 100,
-        opacity: 0, 
-        rotate: rotation 
+        x: Math.random() * 100 - 50,
+        opacity: [0, 0.8, 0.6, 0], 
+        rotate: rotation,
+        scale: [0, 1, 1, 0.5]
       }}
       transition={{ 
-        duration: 3 + Math.random() * 2, 
+        duration: (6 + Math.random() * 4), // 50% slower (was 3-5s, now 6-10s)
         delay: delay,
-        ease: "easeOut" 
+        ease: "easeOut",
+        opacity: { duration: (6 + Math.random() * 4), times: [0, 0.1, 0.7, 1] },
+        scale: { duration: (6 + Math.random() * 4), times: [0, 0.1, 0.8, 1] }
       }}
       className="absolute pointer-events-none"
       style={{
@@ -30,27 +41,29 @@ const Particle = ({ delay }: { delay: number }) => {
         width: size,
         height: size,
         backgroundColor: color,
-        borderRadius: Math.random() > 0.5 ? "50%" : "2px",
+        borderRadius: "50%",
+        boxShadow: `0 0 ${size * 2}px ${color}`, // Soft glow effect
       }}
     />
   );
 };
 
 export const SlideClosing = () => {
-  const [showConfetti, setShowConfetti] = useState(false);
+  const [showParticles, setShowParticles] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowConfetti(true), 2000);
+    // Start 1 second after slide appears
+    const timer = setTimeout(() => setShowParticles(true), 1000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="slide slide-centered relative overflow-hidden">
-      {/* Confetti */}
-      {showConfetti && (
+      {/* Subtle dust/star particles */}
+      {showParticles && (
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {Array.from({ length: 50 }).map((_, i) => (
-            <Particle key={i} delay={i * 0.05} />
+          {Array.from({ length: 35 }).map((_, i) => (
+            <Particle key={i} delay={i * 0.08} />
           ))}
         </div>
       )}
