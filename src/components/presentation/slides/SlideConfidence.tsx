@@ -1,17 +1,18 @@
 import { motion } from "framer-motion";
 import { fadeUpVariants, staggerContainer, scaleInVariants } from "@/components/presentation/AnimatedElements";
 import { ArrowRight } from "lucide-react";
+import dentexBooth from "@/assets/dentex-booth.jpg";
 
 const flowNodes = ["소싱", "콘텐츠", "도서", "강의", "광고", "커머스"];
 
 export const SlideConfidence = () => {
   return (
     <div className="slide slide-left relative overflow-hidden">
-      {/* Background image placeholder - will be added when image is uploaded */}
+      {/* Background image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-20"
+        className="absolute inset-0 bg-cover bg-center opacity-15"
         style={{
-          backgroundImage: "var(--slide-confidence-bg, none)",
+          backgroundImage: `url(${dentexBooth})`,
         }}
       />
       
