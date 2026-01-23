@@ -40,7 +40,7 @@ export const SlideFutureGoal = () => {
         >
           <div className="text-center">
             <p className="text-subtitle text-muted-foreground mb-4">
-              12월 BEP 목표금액
+              <span className="text-primary font-bold">DCO</span> 12월 BEP 목표금액
             </p>
             <h1 
               className="text-foreground font-bold"
@@ -72,7 +72,7 @@ export const SlideFutureGoal = () => {
             transition={{ duration: 0.5 }}
             className="text-subtitle text-muted-foreground mb-4"
           >
-            26년 상반기 BEP 목표금액
+            <span className="text-primary font-bold">DCM</span> 26년 상반기 BEP 목표금액
           </motion.p>
 
           <motion.div
