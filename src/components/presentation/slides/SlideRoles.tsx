@@ -3,14 +3,14 @@ import { fadeUpVariants, staggerContainer, scaleInVariants } from "@/components/
 
 const roles = [
   { title: "공급처 → 고객영업", person: "지수" },
-  { title: "프라임덴탈 + 피부미용", person: "지현" },
-  { title: "운영 전반", person: "민철" },
+  { title: "프라임덴탈 2.2만 SKU + 피부미용", person: "지현" },
+  { title: "일반품목 + 운영전반", person: "민철" },
   { title: "슈링크 영업", person: "언의, 영준, 창배" },
 ];
 
 export const SlideRoles = () => {
   return (
-    <div className="slide slide-left">
+    <div className="slide slide-centered">
       <motion.div
         initial="hidden"
         animate="visible"
@@ -19,7 +19,7 @@ export const SlideRoles = () => {
       >
         <motion.h1 
           variants={fadeUpVariants}
-          className="text-headline mb-12"
+          className="text-headline mb-12 text-center"
         >
           각자 역할에만 집중.
         </motion.h1>

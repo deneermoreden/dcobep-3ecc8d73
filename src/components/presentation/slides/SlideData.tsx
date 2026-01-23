@@ -11,7 +11,7 @@ export const SlideData = () => {
   const maxProfit = Math.max(...data.map((d) => d.profit));
 
   return (
-    <div className="slide slide-left">
+    <div className="slide slide-centered">
       <motion.div
         initial="hidden"
         animate="visible"
@@ -20,9 +20,9 @@ export const SlideData = () => {
       >
         <motion.h1 
           variants={fadeUpVariants}
-          className="text-headline mb-12"
+          className="text-headline mb-12 text-center"
         >
-          매출과 이익률이 올랐습니다
+          결과가 나왔습니다
         </motion.h1>
 
         {/* Data visualization as horizontal bars */}
@@ -67,19 +67,19 @@ export const SlideData = () => {
               </div>
 
               <div className="col-span-12 md:col-span-6 grid grid-cols-3 gap-4 mt-2 md:mt-0">
-                <div className="text-center md:text-left">
+                <div className="text-center">
                   <p className="text-xs text-muted-foreground mb-1">매출</p>
                   <p className="text-lg font-semibold">
                     <CountingNumber value={row.revenue / 100} suffix="억" formatNumber={false} />
                   </p>
                 </div>
-                <div className="text-center md:text-left">
+                <div className="text-center">
                   <p className="text-xs text-muted-foreground mb-1">매출총이익</p>
                   <p className={`text-lg font-bold ${row.highlight ? "text-primary" : ""}`}>
                     <CountingNumber value={row.profit} suffix="만" />
                   </p>
                 </div>
-                <div className="text-center md:text-left">
+                <div className="text-center">
                   <p className="text-xs text-muted-foreground mb-1">이익률</p>
                   <p className="text-lg font-semibold">
                     <CountingNumber value={row.rate} suffix="%" formatNumber={false} />
@@ -95,7 +95,7 @@ export const SlideData = () => {
           custom={1}
           initial="hidden"
           animate="visible"
-          className="text-subtitle font-bold"
+          className="text-subtitle font-bold text-center"
         >
           피부미용 본격 판매 → 이익률{" "}
           <span className="text-primary">11%에서 16%로</span>
@@ -106,7 +106,7 @@ export const SlideData = () => {
           custom={1.5}
           initial="hidden"
           animate="visible"
-          className="text-body text-muted-foreground mt-6"
+          className="text-body text-muted-foreground mt-6 text-center"
         >
           솔직히, 운이 좋았습니다.
         </motion.p>

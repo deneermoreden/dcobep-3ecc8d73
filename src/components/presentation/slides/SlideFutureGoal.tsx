@@ -8,10 +8,10 @@ export const SlideFutureGoal = () => {
   useEffect(() => {
     // Phase 1: Show December BEP after 0.5s
     const timer1 = setTimeout(() => setPhase(1), 500);
-    // Phase 2: Transform to target after 2s
-    const timer2 = setTimeout(() => setPhase(2), 2000);
-    // Phase 3: Show label and conclusion after 3.5s
-    const timer3 = setTimeout(() => setPhase(3), 3500);
+    // Phase 2: Transform to target after 6s (slowed down for presenter)
+    const timer2 = setTimeout(() => setPhase(2), 6000);
+    // Phase 3: Show label and conclusion after 8s
+    const timer3 = setTimeout(() => setPhase(3), 8000);
 
     return () => {
       clearTimeout(timer1);
