@@ -2,38 +2,39 @@ import { motion } from "framer-motion";
 import { fadeUpVariants, glowVariants } from "@/components/presentation/AnimatedElements";
 import { useEffect, useState } from "react";
 
-// Subtle dust/star particle
+// Enhanced dust/star particle with more visibility
 const Particle = ({ delay }: { delay: number }) => {
-  // Softer, lighter colors - light blues and whites
+  // Brighter, more vivid colors
   const colors = [
-    "rgba(147, 197, 253, 0.6)", // light blue
-    "rgba(219, 234, 254, 0.5)", // very light blue
-    "rgba(255, 255, 255, 0.7)", // white
-    "rgba(191, 219, 254, 0.5)", // soft blue
-    "rgba(224, 231, 255, 0.4)", // pale indigo
+    "rgba(147, 197, 253, 0.85)", // bright light blue
+    "rgba(219, 234, 254, 0.75)", // light blue
+    "rgba(255, 255, 255, 0.9)", // bright white
+    "rgba(96, 165, 250, 0.8)", // vivid blue
+    "rgba(191, 219, 254, 0.7)", // soft blue
+    "rgba(59, 130, 246, 0.7)", // primary blue
   ];
   const color = colors[Math.floor(Math.random() * colors.length)];
   const left = Math.random() * 100;
   const rotation = Math.random() * 360;
-  // Smaller particles (1-3px) like dust or stars
-  const size = Math.random() * 2 + 1;
+  // Larger particles (2-5px) for better visibility
+  const size = Math.random() * 3 + 2;
 
   return (
     <motion.div
       initial={{ y: -10, x: 0, opacity: 0, rotate: 0, scale: 0 }}
       animate={{ 
         y: "100vh", 
-        x: Math.random() * 100 - 50,
-        opacity: [0, 0.8, 0.6, 0], 
+        x: Math.random() * 120 - 60,
+        opacity: [0, 1, 0.85, 0], 
         rotate: rotation,
-        scale: [0, 1, 1, 0.5]
+        scale: [0, 1.2, 1, 0.6]
       }}
       transition={{ 
-        duration: (6 + Math.random() * 4), // 50% slower (was 3-5s, now 6-10s)
+        duration: (10 + Math.random() * 6), // Longer duration (10-16s)
         delay: delay,
         ease: "easeOut",
-        opacity: { duration: (6 + Math.random() * 4), times: [0, 0.1, 0.7, 1] },
-        scale: { duration: (6 + Math.random() * 4), times: [0, 0.1, 0.8, 1] }
+        opacity: { duration: (10 + Math.random() * 6), times: [0, 0.08, 0.75, 1] },
+        scale: { duration: (10 + Math.random() * 6), times: [0, 0.08, 0.8, 1] }
       }}
       className="absolute pointer-events-none"
       style={{
@@ -42,7 +43,7 @@ const Particle = ({ delay }: { delay: number }) => {
         height: size,
         backgroundColor: color,
         borderRadius: "50%",
-        boxShadow: `0 0 ${size * 2}px ${color}`, // Soft glow effect
+        boxShadow: `0 0 ${size * 4}px ${color}, 0 0 ${size * 8}px ${color}`, // Enhanced glow
       }}
     />
   );
@@ -62,8 +63,8 @@ export const SlideClosing = () => {
       {/* Subtle dust/star particles */}
       {showParticles && (
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {Array.from({ length: 35 }).map((_, i) => (
-            <Particle key={i} delay={i * 0.08} />
+          {Array.from({ length: 50 }).map((_, i) => (
+            <Particle key={i} delay={i * 0.12} />
           ))}
         </div>
       )}
@@ -77,9 +78,23 @@ export const SlideClosing = () => {
           variants={glowVariants}
           className="mb-12"
         >
-          <h1 className="text-title md:text-headline font-bold leading-tight">
+          <motion.h1 
+            className="text-title md:text-headline font-bold leading-tight"
+            animate={{
+              textShadow: [
+                "0 0 20px rgba(59, 130, 246, 0.3)",
+                "0 0 40px rgba(59, 130, 246, 0.5)",
+                "0 0 20px rgba(59, 130, 246, 0.3)",
+              ]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
             DCM은 돈 버는 사업이 될 겁니다.
-          </h1>
+          </motion.h1>
         </motion.div>
 
         <motion.p
