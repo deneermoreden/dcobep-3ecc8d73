@@ -35,6 +35,16 @@ export const SlideDecisionCriteria = () => {
         >
           모든 의사결정의 기준.
         </motion.p>
+
+        <motion.p
+          variants={fadeUpVariants}
+          custom={1}
+          initial="hidden"
+          animate="visible"
+          className="text-subtitle text-primary font-semibold mt-8"
+        >
+          → 서로 방향에 대한 신뢰가 생겼습니다
+        </motion.p>
       </motion.div>
     </div>
   );

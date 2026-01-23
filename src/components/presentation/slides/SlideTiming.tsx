@@ -3,9 +3,10 @@ import { fadeUpVariants, staggerContainer, slideLeftVariants } from "@/component
 
 const timingItems = [
   "12월 프라임덴탈 런칭 → 상품 구색",
-  "11월 씨뿌림 → 12월 전환",
+  "11월 CT/스캐너/슈링크 리드 → 12월 매출 전환",
   "니콘 카메라 → 12월 런칭",
   "MTS 오토디엔 → 이익률 46%",
+  "메디스트림 시너지 → 피부미용 소모품 이관, 공동매입",
 ];
 
 export const SlideTiming = () => {
