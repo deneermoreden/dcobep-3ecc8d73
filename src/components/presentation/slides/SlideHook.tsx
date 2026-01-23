@@ -13,12 +13,23 @@ export const SlideHook = () => {
       />
       
       <div className="relative z-10 flex flex-col items-center gap-6 max-w-4xl text-center">
-        {/* Top: BEP target (small, gray) */}
+        {/* Very top: Quarterly average (smallest, gray) */}
         <motion.p
           initial="hidden"
           animate="visible"
           variants={fadeUpVariants}
           custom={0}
+          className="text-caption text-muted-foreground/70 text-sm"
+        >
+          1,2,3분기 월평균 매출총이익: 14,713,688원
+        </motion.p>
+
+        {/* Top: BEP target (small, gray) */}
+        <motion.p
+          initial="hidden"
+          animate="visible"
+          variants={fadeUpVariants}
+          custom={0.1}
           className="text-caption text-muted-foreground"
         >
           12월 BEP 목표: 5,800만원
