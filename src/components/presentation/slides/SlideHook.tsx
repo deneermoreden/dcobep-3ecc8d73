@@ -21,7 +21,7 @@ export const SlideHook = () => {
           custom={0}
           className="text-caption text-muted-foreground/70 text-sm"
         >
-          1,2,3분기 월평균 매출총이익: 14,713,688원
+          1~3분기 월평균 매출총이익: 1,400만원
         </motion.p>
 
         {/* Top: BEP target (small, gray) */}
