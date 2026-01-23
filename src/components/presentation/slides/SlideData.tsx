@@ -22,7 +22,7 @@ export const SlideData = () => {
           variants={fadeUpVariants}
           className="text-headline mb-12"
         >
-          솔직히, 운이 좋았습니다.
+          매출과 이익률이 올랐습니다
         </motion.h1>
 
         {/* Data visualization as horizontal bars */}
@@ -99,6 +99,16 @@ export const SlideData = () => {
         >
           피부미용 본격 판매 → 이익률{" "}
           <span className="text-primary">11%에서 16%로</span>
+        </motion.p>
+
+        <motion.p
+          variants={fadeUpVariants}
+          custom={1.5}
+          initial="hidden"
+          animate="visible"
+          className="text-body text-muted-foreground mt-6"
+        >
+          솔직히, 운이 좋았습니다.
         </motion.p>
       </motion.div>
     </div>

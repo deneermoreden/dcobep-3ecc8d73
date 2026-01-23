@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { fadeUpVariants, staggerContainer, scaleInVariants } from "@/components/presentation/AnimatedElements";
 
 const roles = [
-  { title: "고객 영업", person: "지수" },
+  { title: "공급처 → 고객영업", person: "지수" },
   { title: "프라임덴탈 + 피부미용", person: "지현" },
   { title: "운영 전반", person: "민철" },
   { title: "슈링크 영업", person: "언의, 영준, 창배" },
@@ -32,8 +32,8 @@ export const SlideRoles = () => {
               custom={index * 0.1}
               className="presentation-card group"
             >
-              <p className="text-muted-foreground text-lg mb-2">{role.title}</p>
-              <p className="text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors">
+              <p className="text-muted-foreground text-xl md:text-2xl mb-3">{role.title}</p>
+              <p className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-primary transition-colors">
                 {role.person}
               </p>
             </motion.div>

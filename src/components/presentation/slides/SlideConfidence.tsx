@@ -6,24 +6,51 @@ const flowNodes = ["소싱", "콘텐츠", "도서", "강의", "광고", "커머�
 
 export const SlideConfidence = () => {
   return (
-    <div className="slide slide-left">
+    <div className="slide slide-left relative overflow-hidden">
+      {/* Background image placeholder - will be added when image is uploaded */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-20"
+        style={{
+          backgroundImage: "var(--slide-confidence-bg, none)",
+        }}
+      />
+      
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
+
       <motion.div
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="max-w-5xl w-full"
+        className="max-w-5xl w-full relative z-10"
       >
         <motion.h1 
           variants={fadeUpVariants}
-          className="text-headline mb-12"
+          className="text-headline mb-8"
         >
           "피부미용하면 모어덴"
         </motion.h1>
 
+        {/* Team composition */}
+        <motion.div
+          variants={fadeUpVariants}
+          custom={0.2}
+          initial="hidden"
+          animate="visible"
+          className="mb-10"
+        >
+          <p className="text-body text-foreground/90 mb-2">
+            치과의사 + 시니어 3명 + 영업/운영 + PD/디자이너
+          </p>
+          <p className="text-subtitle text-primary font-semibold">
+            역량 갖춘 11명. 빠른 의사결정.
+          </p>
+        </motion.div>
+
         {/* Flow diagram */}
         <motion.div 
           variants={fadeUpVariants}
-          custom={0.3}
+          custom={0.4}
           initial="hidden"
           animate="visible"
           className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-8"
@@ -32,7 +59,7 @@ export const SlideConfidence = () => {
             <motion.div
               key={node}
               variants={scaleInVariants}
-              custom={index * 0.1 + 0.4}
+              custom={index * 0.1 + 0.5}
               initial="hidden"
               animate="visible"
               className="flex items-center"
@@ -47,22 +74,12 @@ export const SlideConfidence = () => {
 
         <motion.p
           variants={fadeUpVariants}
-          custom={0.8}
+          custom={0.9}
           initial="hidden"
           animate="visible"
-          className="text-subtitle text-primary font-semibold mb-8 text-center"
+          className="text-subtitle text-primary font-semibold text-center"
         >
           유기적으로 연결.
-        </motion.p>
-
-        <motion.p
-          variants={fadeUpVariants}
-          custom={1}
-          initial="hidden"
-          animate="visible"
-          className="text-body text-muted-foreground text-center"
-        >
-          디자이너, PD 합류. 빠른 의사결정 → 빠른 산출물.
         </motion.p>
       </motion.div>
     </div>
