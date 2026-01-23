@@ -12,22 +12,19 @@ export const SlideHook = () => {
         }}
       />
       
-      <div className="relative z-10 flex flex-col items-center gap-8 max-w-4xl">
+      <div className="relative z-10 flex flex-col items-center gap-6 max-w-4xl text-center">
+        {/* Top: BEP target (small, gray) */}
         <motion.p
           initial="hidden"
           animate="visible"
           variants={fadeUpVariants}
           custom={0}
-          className="text-caption"
+          className="text-caption text-muted-foreground"
         >
-          11월 매출총이익{" "}
-          <CountingNumber 
-            value={2700} 
-            suffix="만원" 
-            className="text-muted-foreground"
-          />
+          12월 BEP 목표: 5,800만원
         </motion.p>
 
+        {/* Middle: Actual result (large, white) */}
         <motion.h1
           initial="hidden"
           animate="visible"
@@ -35,12 +32,24 @@ export const SlideHook = () => {
           custom={0.2}
           className="text-headline text-foreground"
         >
-          12월 매출총이익{" "}
-          <span className="text-primary font-black">
+          12월 매출총이익:{" "}
+          <span className="font-black">
             <CountingNumber value={6440} suffix="만원" />
           </span>
         </motion.h1>
 
+        {/* Below: Achievement (blue accent) */}
+        <motion.p
+          initial="hidden"
+          animate="visible"
+          variants={fadeUpVariants}
+          custom={0.4}
+          className="text-title text-primary font-bold"
+        >
+          달성.
+        </motion.p>
+
+        {/* Bottom: Question (huge, with glow) */}
         <motion.div
           initial="hidden"
           animate="visible"

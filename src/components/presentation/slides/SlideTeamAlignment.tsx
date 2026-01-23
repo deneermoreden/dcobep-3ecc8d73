@@ -1,12 +1,10 @@
 import { motion } from "framer-motion";
 import { fadeUpVariants, staggerContainer, scaleInVariants } from "@/components/presentation/AnimatedElements";
-import { ArrowRight } from "lucide-react";
 
-const oodaSteps = [
-  { id: "observe", label: "Observe" },
-  { id: "orient", label: "Orient" },
-  { id: "decide", label: "Decide" },
-  { id: "act", label: "Act" },
+const steps = [
+  { text: "매일 아침 공유", result: "상황 파악" },
+  { text: "빠르게 판단", result: "바로 결정" },
+  { text: "서로 피드백", result: "다음날 반영" },
 ];
 
 export const SlideTeamAlignment = () => {
@@ -22,7 +20,7 @@ export const SlideTeamAlignment = () => {
           variants={fadeUpVariants}
           className="text-headline mb-6"
         >
-          매일 10분, OODA 루프
+          매일 10분, 빠르게 맞췄습니다
         </motion.h1>
 
         <motion.p 
@@ -35,41 +33,23 @@ export const SlideTeamAlignment = () => {
           처음부터 계획한 건 아닙니다. 상황에 맞게 조정했습니다.
         </motion.p>
 
-        {/* OODA Loop Diagram */}
-        <motion.div 
-          variants={fadeUpVariants}
-          custom={0.4}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-12"
-        >
-          {oodaSteps.map((step, index) => (
+        {/* 3-step flow */}
+        <div className="space-y-6 mb-12">
+          {steps.map((step, index) => (
             <motion.div
-              key={step.id}
+              key={step.text}
               variants={scaleInVariants}
-              custom={index * 0.1 + 0.5}
+              custom={index * 0.15 + 0.4}
               initial="hidden"
               animate="visible"
-              className="flex items-center"
+              className="flex items-center justify-center gap-4"
             >
-              <span className="px-4 py-2 md:px-6 md:py-3 rounded-full border border-muted-foreground/30 bg-muted/20 text-foreground text-sm md:text-base font-medium">
-                {step.label}
-              </span>
-              {index < oodaSteps.length - 1 ? (
-                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 mx-2 text-primary" />
-              ) : (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1.2 }}
-                  className="flex items-center ml-2"
-                >
-                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-primary rotate-[135deg]" />
-                </motion.div>
-              )}
+              <span className="text-subtitle text-foreground">{step.text}</span>
+              <span className="text-primary text-2xl">→</span>
+              <span className="text-subtitle text-primary font-semibold">{step.result}</span>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         <motion.p 
           variants={fadeUpVariants}

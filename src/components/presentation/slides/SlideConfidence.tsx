@@ -7,23 +7,23 @@ const flowNodes = ["소싱", "콘텐츠", "도서", "강의", "광고", "커머�
 
 export const SlideConfidence = () => {
   return (
-    <div className="slide slide-left relative overflow-hidden">
-      {/* Background image */}
+    <div className="slide slide-centered relative overflow-hidden">
+      {/* Background image - increased opacity */}
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-15"
+        className="absolute inset-0 bg-cover bg-center opacity-30"
         style={{
           backgroundImage: `url(${dentexBooth})`,
         }}
       />
       
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
+      {/* Overlay for better text readability - adjusted to show more of image on right */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
 
       <motion.div
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="max-w-5xl w-full relative z-10"
+        className="max-w-5xl w-full relative z-10 text-center"
       >
         <motion.h1 
           variants={fadeUpVariants}
@@ -78,7 +78,7 @@ export const SlideConfidence = () => {
           custom={0.9}
           initial="hidden"
           animate="visible"
-          className="text-subtitle text-primary font-semibold text-center"
+          className="text-subtitle text-primary font-semibold"
         >
           유기적으로 연결.
         </motion.p>

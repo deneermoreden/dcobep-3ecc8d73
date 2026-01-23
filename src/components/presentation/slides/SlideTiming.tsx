@@ -11,12 +11,12 @@ const timingItems = [
 
 export const SlideTiming = () => {
   return (
-    <div className="slide slide-left">
+    <div className="slide slide-centered">
       <motion.div
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="max-w-4xl"
+        className="max-w-4xl text-center"
       >
         <motion.h1 
           variants={fadeUpVariants}
@@ -33,9 +33,9 @@ export const SlideTiming = () => {
               custom={index * 0.15 + 0.3}
               initial="hidden"
               animate="visible"
-              className="flex items-start gap-4"
+              className="flex items-center justify-center gap-4"
             >
-              <div className="w-2 h-2 rounded-full bg-primary mt-3 flex-shrink-0" 
+              <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0" 
                 style={{ boxShadow: "0 0 10px hsl(var(--primary) / 0.5)" }}
               />
               <p className="text-body text-foreground/90">{item}</p>

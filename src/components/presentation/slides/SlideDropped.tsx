@@ -10,12 +10,12 @@ const droppedItems = [
 
 export const SlideDropped = () => {
   return (
-    <div className="slide slide-left">
+    <div className="slide slide-centered">
       <motion.div
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="max-w-4xl"
+        className="max-w-4xl text-center"
       >
         <motion.h1 
           variants={fadeUpVariants}
@@ -24,7 +24,7 @@ export const SlideDropped = () => {
           빠르게 관찰하고, 빠르게 조정
         </motion.h1>
 
-        <div className="space-y-8">
+        <div className="space-y-8 mb-12">
           {droppedItems.map((item, index) => (
             <motion.div
               key={item.name}
@@ -32,11 +32,11 @@ export const SlideDropped = () => {
               custom={index * 0.2 + 0.3}
               initial="hidden"
               animate="visible"
-              className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6"
+              className="flex flex-col md:flex-row md:items-center justify-center gap-2 md:gap-6"
             >
               {item.type === "dropped" ? (
                 <>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-center gap-3">
                     <X className="w-5 h-5 text-red-400 flex-shrink-0" />
                     <StrikethroughText 
                       delay={0.8 + index * 0.2}
@@ -45,19 +45,19 @@ export const SlideDropped = () => {
                       {item.name}
                     </StrikethroughText>
                   </div>
-                  <span className="text-body text-foreground/80 md:ml-2">
+                  <span className="text-body text-foreground/80">
                     — {item.reason}
                   </span>
                 </>
               ) : (
                 <>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-center gap-3">
                     <ArrowRight className="w-5 h-5 text-primary flex-shrink-0" />
                     <span className="text-subtitle text-foreground">
                       {item.name}
                     </span>
                   </div>
-                  <span className="text-body text-primary font-medium md:ml-2">
+                  <span className="text-body text-primary font-medium">
                     → {item.reason}
                   </span>
                 </>
@@ -71,9 +71,9 @@ export const SlideDropped = () => {
           custom={1.2}
           initial="hidden"
           animate="visible"
-          className="text-body text-muted-foreground mt-12"
+          className="text-body text-muted-foreground"
         >
-          OODA 루프를 돌리며 배웠습니다
+          아니다 싶으면 빠르게 조정했습니다
         </motion.p>
       </motion.div>
     </div>

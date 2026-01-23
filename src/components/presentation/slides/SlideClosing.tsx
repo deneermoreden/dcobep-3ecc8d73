@@ -99,7 +99,7 @@ export const SlideClosing = () => {
           animate="visible"
           className="text-title text-accent-glow font-semibold"
         >
-          DCM 팀에게 감사드립니다.
+          감사합니다. 지켜봐 주세요.
         </motion.p>
       </motion.div>
     </div>
