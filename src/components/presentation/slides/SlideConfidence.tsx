@@ -8,16 +8,16 @@ const flowNodes = ["소싱", "콘텐츠", "도서", "강의", "광고", "커머�
 export const SlideConfidence = () => {
   return (
     <div className="slide slide-centered relative overflow-hidden">
-      {/* Background image - increased opacity for better visibility */}
+      {/* Background image - brighter for better visibility */}
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-50"
+        className="absolute inset-0 bg-cover bg-center opacity-70"
         style={{
           backgroundImage: `url(${dentexBooth})`,
         }}
       />
       
-      {/* Overlay for text readability - lighter gradient to show more of image */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40" />
+      {/* Overlay for text readability - reduced to show more of image */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/50 to-background/20" />
 
       <motion.div
         initial="hidden"
