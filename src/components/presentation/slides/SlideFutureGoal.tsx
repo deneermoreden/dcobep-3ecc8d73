@@ -8,10 +8,10 @@ export const SlideFutureGoal = () => {
   useEffect(() => {
     // Phase 1: Show December BEP after 0.5s
     const timer1 = setTimeout(() => setPhase(1), 500);
-    // Phase 2: Transform to target after 6s (slowed down for presenter)
-    const timer2 = setTimeout(() => setPhase(2), 6000);
-    // Phase 3: Show label and conclusion after 8s
-    const timer3 = setTimeout(() => setPhase(3), 8000);
+    // Phase 2: Transform to target after 4s (medium speed)
+    const timer2 = setTimeout(() => setPhase(2), 4000);
+    // Phase 3: Show label and conclusion after 6s
+    const timer3 = setTimeout(() => setPhase(3), 6000);
 
     return () => {
       clearTimeout(timer1);
@@ -40,7 +40,7 @@ export const SlideFutureGoal = () => {
         >
           <div className="text-center">
             <p className="text-subtitle text-muted-foreground mb-4">
-              12월 BEP
+              12월 BEP 목표금액
             </p>
             <h1 
               className="text-foreground font-bold"
@@ -72,7 +72,7 @@ export const SlideFutureGoal = () => {
             transition={{ duration: 0.5 }}
             className="text-subtitle text-muted-foreground mb-4"
           >
-            26년 상반기 BEP
+            26년 상반기 BEP 목표금액
           </motion.p>
 
           <motion.div
